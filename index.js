@@ -1,5 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs');
+
+const talker = 'talker.json';
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,4 +17,10 @@ app.get('/', (_request, response) => {
 
 app.listen(PORT, () => {
   console.log('Online');
+});
+
+app.get('/talker', (_request, response) => {
+  const data = JSON.parse(fs.readFileSync(talker, 'utf-8'));
+  if (!data) return response.status(200).json([]);
+  response.status(200).json(data);
 });
