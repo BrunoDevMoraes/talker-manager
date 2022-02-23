@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const crypto = require('crypto');
-const validator = require("email-validator");
+const validator = require('email-validator');
 
 const talker = 'talker.json';
 
@@ -39,7 +39,7 @@ app.use(bodyParser.json());
 
 app.post('/login', (request, response) => {
   const { email, password } = request.body;
-  if (!email) return response.status(400).json({ message: 'O campo "email" é obrigatório'});
+  if (!email) return response.status(400).json({ message: 'O campo "email" é obrigatório' });
   if (!(validator.validate(email))) {
     return response.status(400)
       .json({ message: 'O "email" deve ter o formato "email@email.com"' });
