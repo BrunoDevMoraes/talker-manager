@@ -9,6 +9,7 @@ const isItTalker = require('../middlewares/isItTalker');
 const getAllTalkers = require('../middlewares/getAllTalkers');
 const handleTalkerPostOk = require('../middlewares/handleTalkerPostOk');
 const handleTalkerPutOk = require('../middlewares/handleTalkerPutOk');
+const handleTalkerDeleteOk = require('../middlewares/handleTalkerDeleteOk');
 
 const router = express.Router();
 
@@ -33,5 +34,9 @@ handleWatchedAt,
 handleRate,
 handleTalk,
 handleTalkerPutOk);
+
+router.delete('/:id',
+handleAuthorization,
+handleTalkerDeleteOk);
 
 module.exports = router;
