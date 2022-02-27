@@ -15,14 +15,14 @@ const handleNoTerm = require('../middlewares/handleNoTerm');
 
 const router = express.Router();
 
-router.get('/search?q=searchTerm',
+router.get('', getAllTalkers);
+
+router.get('/search',
 handleAuthorization,
 handleNoTerm,
 handleTalkerGetTerm);
 
 router.get('/:id', isItTalker);
-
-router.get('', getAllTalkers);
 
 router.post('',
 handleAuthorization,
