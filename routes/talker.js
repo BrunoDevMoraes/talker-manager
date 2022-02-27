@@ -10,20 +10,27 @@ const getAllTalkers = require('../middlewares/getAllTalkers');
 const handleTalkerPostOk = require('../middlewares/handleTalkerPostOk');
 const handleTalkerPutOk = require('../middlewares/handleTalkerPutOk');
 const handleTalkerDeleteOk = require('../middlewares/handleTalkerDeleteOk');
+const handleTalkerGetTerm = require('../middlewares/handleTalkerGetTerm');
+const handleNoTerm = require('../middlewares/handleNoTerm');
 
 const router = express.Router();
 
-router.get('', getAllTalkers);
+router.get('/search?q=searchTerm',
+handleAuthorization,
+handleNoTerm,
+handleTalkerGetTerm);
 
 router.get('/:id', isItTalker);
+
+router.get('', getAllTalkers);
 
 router.post('',
 handleAuthorization,
 handleName,
 handleAge,
-handleWatchedAt,
-handleRate,
 handleTalk,
+handleRate,
+handleWatchedAt,
 handleTalkerPostOk);
 
 router.put('/:id',

@@ -9,8 +9,8 @@ async function handleTalkerPostOk(request, response, _next) {
 
   const newTalker = { id: (parsedData.length + 1), name, age, talk: { watchedAt, rate } };
 
-  // await fs.writeFile(talker, JSON.stringify([...parsedData, newTalker]));
-  return response.status(201).json([...parsedData, newTalker]);
+  await fs.writeFile(talker, JSON.stringify([...parsedData, newTalker]));
+  return response.status(201).json(newTalker);
 }
 
 module.exports = handleTalkerPostOk;
