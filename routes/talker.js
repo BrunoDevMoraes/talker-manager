@@ -37,9 +37,9 @@ router.put('/:id',
 handleAuthorization,
 handleName,
 handleAge,
-handleWatchedAt,
-handleRate,
 handleTalk,
+handleRate,
+handleWatchedAt,
 handleTalkerPutOk);
 
 router.delete('/:id',

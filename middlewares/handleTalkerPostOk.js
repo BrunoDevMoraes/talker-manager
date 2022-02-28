@@ -4,7 +4,7 @@ const talker = 'talker.json';
 
 async function handleTalkerPostOk(request, response, _next) {
   const { name, age, talk: { watchedAt, rate } } = request.body;
-  const stringFileData = await fs.readFile(talker, 'utf8', (_err, data) => data);
+  const stringFileData = await fs.readFile(talker, 'utf-8', (_err, data) => data);
   const parsedData = JSON.parse(stringFileData);
 
   const newTalker = { id: (parsedData.length + 1), name, age, talk: { watchedAt, rate } };
