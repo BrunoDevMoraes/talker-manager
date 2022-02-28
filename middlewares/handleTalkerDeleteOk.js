@@ -10,7 +10,7 @@ async function handleTalkerDeleteOk(request, response, _next) {
 
   parsedData.splice((Number(id) - 1), 1);
   await fs.writeFile(talker, JSON.stringify(parsedData));
-  console.log(parsedData);
+
   return response.status(204).end();
 }
 
